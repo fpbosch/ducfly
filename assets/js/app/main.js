@@ -8,7 +8,8 @@ require.config({
 		'jquery': '..app/lib/jquery/dist/jquery',
 		'getbootstrap': '..app/lib/bootstrap/dist/js/bootstrap',
 		'angular-sails': '/js/app/lib/angular-sails/dist/angular-sails',
-		'sails-socket': '/js/app/lib/sails/socket-io'
+		'sails-socket': '/js/app/lib/sails/socket-io',
+		'sails-io': '/js/app/lib/sails/sails-io'
   
 	},// angular does not support AMD out of the box, put it in a shim
 	shim: {
@@ -17,7 +18,8 @@ require.config({
 		},
 		'angular.route': ['angular'],
 		'getbootstrap': ['jquery'],
-		'angular-sails':  ['sails-socket']
+		'sails-io': ['sails-socket'],
+		'angular-sails':  ['sails-io','sails-socket','angular']
 
 	},
 	// kick start application
