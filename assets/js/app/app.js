@@ -1,6 +1,7 @@
 define([
       'angular',
       'angular.route', 
+      'angular-sails',
       './controllers/index',
       /*'./services/index',*/
       /*'./directives/index',*/
@@ -9,8 +10,9 @@ define([
       'use strict';
     
      return ng.module('app', [
-         'ngRoute',
-         'app.controllers',
+        'ngSails',
+        'ngRoute',
+        'app.controllers',
          // call your 'app.services',
          // call your 'app.directives',
          // call your 'app.filters',

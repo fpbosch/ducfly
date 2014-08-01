@@ -13,6 +13,7 @@
     "requirejs-domready": "latest",
     "jquery": "latest",
     "bootstrap": "latest",
-    "fontawesome": "latest"
+    "fontawesome": "latest",
+    "angular-sails": "~1.0.4"
   }
 }
