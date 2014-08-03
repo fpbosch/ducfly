@@ -3,6 +3,7 @@ define([
       'angular.route', 
       'angular-sails',
       './controllers/index',
+      './directives/index',
       /*'./services/index',*/
       /*'./directives/index',*/
       /*'./filters/index'*/
@@ -13,6 +14,7 @@ define([
         'ngSails',
         'ngRoute',
         'app.controllers',
+        'app.directives'
          // call your 'app.services',
          // call your 'app.directives',
          // call your 'app.filters',
