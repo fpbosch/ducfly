@@ -9,8 +9,7 @@
     <title><%- title %></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--
 
       Stylesheets
@@ -22,7 +21,9 @@
     -->
     <link rel="stylesheet" href="/js/app/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/js/app/lib/fontawesome/css/font-awesome.min.css">
-
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/smartadmin-skins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/demo.min.css">
     <!--
 
       Support for LESS included by default
@@ -46,8 +47,23 @@
       <li><a id="showView1" href="#/view1">show view1</a></li>
       <li><a id="showView2" href="#/view2">show view2</a></li>
     </ul>-->
+    <header id="header" data-ng-include="'js/app/partials/header.html'"></header>
 
-    <div data-ng-view></div>
+    <aside id="left-panel">
+      <ng-include src="'js/app/partials/leftAdminMenu.html'"></ng-include>
+    </aside>
+
+    <div id="main" role="main">
+
+      <!-- RIBBON -->
+      <!--<div id="ribbon" data-ng-include="'includes/ribbon.html'" data-ribbon=""></div>-->
+      <!-- END RIBBON -->
+
+      <!-- MAIN CONTENT -->
+      <div id="content" data-ng-view="" class="view-animate"></div>
+      <!-- END MAIN CONTENT -->
+
+    </div>
 
     <div>Angular Require seed app: v<span app-version></span></div>
     <!--
