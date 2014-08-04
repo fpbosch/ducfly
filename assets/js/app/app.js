@@ -4,7 +4,7 @@ define([
       'angular-sails',
       './controllers/index',
       './directives/index',
-      /*'./services/index',*/
+      './services/index',
       /*'./directives/index',*/
       /*'./filters/index'*/
   ], function (ng) {
@@ -14,8 +14,8 @@ define([
         'ngSails',
         'ngRoute',
         'app.controllers',
-        'app.directives'
-         // call your 'app.services',
+        'app.directives',
+        'app.services',
          // call your 'app.directives',
          // call your 'app.filters',
      ]);
