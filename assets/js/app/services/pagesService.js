@@ -2,9 +2,25 @@ define(['./module'], function (services) {
 	'use strict';
   services.service('pagesService', function ($http, $sails) {
 
-  		var signup = function(_name, _email, _password) {
+  		var getAll = function() {
 
-			console.log('The name: '+_name);
+  			return $sails.get("http://localhost:1337/pages/getAll")
+		      .success(function (data) {
+		        //$scope.bars = data;
+		      })
+		      .error(function (data) {
+		        //alert('Houston, we got a problem!');
+		      });
+
+
+		    $sails.on("message", function (message) {
+		      if (message.verb === "create") {
+		        //$scope.bars.push(message.data);
+		      }
+		    });
+
+
+			/*console.log('The name: '+_name);
 			console.log('The name: '+_email);
 			console.log('The name: '+_password);
 
@@ -16,12 +32,12 @@ define(['./module'], function (services) {
 			success(function(data, status, headers, config) {
 			}).
 			error(function(data, status, headers, config) {
-			});	
+			});*/	
 			  	
 		};
 
 		var pagesService = {
-			signup:signup
+			getAll:getAll
 		};
 
 		return pagesService;
