@@ -22,17 +22,12 @@ define(['./app'], function (app) {
             controller: 'PagesListCtrl'
           });
 
-          $routeProvider.when('/pages/:pageId', {
-            templateUrl: 'js/app/partials/pages/pages-detail.html', 
-            controller: 'PAgesDetailCtrl'
-          });
-          
           $routeProvider.when('/pages/:pageId/edit', {
             templateUrl: 'js/app/partials/pages/pages-edit.html', 
             controller: 'PagesEditCtrl'
           });
 
-          $routeProvider.when('/pages/:pageId/new', {
+          $routeProvider.when('/pages/new', {
             templateUrl: 'js/app/partials/pages/pages-new.html', 
             controller: 'PagesNewCtrl'
           });

@@ -1,5 +1,7 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('PagesEditCtrl', [function ($scope) {}]);
+  controllers.controller('PagesEditCtrl', [function ($scope) {
+
+  }]);
 
 });

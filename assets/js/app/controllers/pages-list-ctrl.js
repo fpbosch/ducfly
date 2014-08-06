@@ -6,8 +6,8 @@ define(['./module'], function (controllers) {
 		$scope.pages = pages;
 	}).error(function (data) {
 		alert('Houston, we got a problem!');
-	});;
-	
+	});
+
   }]);
 
 });
