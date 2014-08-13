@@ -3,7 +3,7 @@ define(['./module'], function (controllers) {
   controllers.controller('PagesNewCtrl', ['$scope', 'pagesService', function ($scope, pagesService) {
 
   	$scope.ok = function(title, body) {
-
+  		console.log('El body: '+body);
 		var result = pagesService.save(title, body).success(function(page) {
 			$scope.result = page;
 		}).error(function (data) {

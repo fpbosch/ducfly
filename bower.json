@@ -14,6 +14,8 @@
     "jquery": "latest",
     "bootstrap": "latest",
     "fontawesome": "latest",
-    "angular-sails": "~1.0.4"
+    "angular-sails": "~1.0.4",
+    "angular-summernote": "~0.2.2",
+    "angular-redactor": "~1.0.0"
   }
 }

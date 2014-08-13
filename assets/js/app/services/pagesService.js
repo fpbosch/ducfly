@@ -23,6 +23,27 @@ define(['./module'], function (services) {
 			  	
 		};
 
+		var getOne = function(pageId) {
+
+  			return $sails.get("http://localhost:1337/pages/"+pageId)
+		      .success(function (data) {
+		        //$scope.page = data;
+		      })
+		      .error(function (data) {
+		        //alert('Houston, we got a problem!');
+		      });
+
+		    $sails.on("message", function (message) {
+		    
+		      if (message.verb === "create") {
+		        //$scope.bars.push(message.data);
+		      }
+		    
+		    });
+			  	
+		};
+
+
 		var save = function(title, body) {
 
   			return $sails.post("http://localhost:1337/pages",{'title':title, 'body':body})
@@ -49,6 +70,7 @@ define(['./module'], function (services) {
 
 		var pagesService = {
 			getAll:getAll,
+			getOne:getOne,
 			save:save
 		};
 

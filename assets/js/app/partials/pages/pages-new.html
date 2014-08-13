@@ -1,7 +1,6 @@
 <div class="row">
 	{{result}}
 </div>
-
 <div class="row">
 	<!-- NEW COL START -->
 	<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
@@ -55,18 +54,15 @@
 							</section>														
 						</fieldset>
 
+							
 						<fieldset>
 							<section>
-								<label class="label">Textarea</label>
-								<label class="textarea"> 				
-									<textarea name="body" ng-model="page.body" rows="3" class="custom-scroll"></textarea> 
-								</label>
-								<div class="note">
-									<strong>Note:</strong> height of the textarea depends on the rows attribute.
-								</div>
+								<macareta my-model-attr="page.body"></macareta>
 							</section>
 						</fieldset>
-										
+
+						
+
 						<footer>
 
 							<button type="submit" class="btn btn-primary" ng-click="ok(page.title, page.body)">

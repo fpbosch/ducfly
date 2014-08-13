@@ -2,6 +2,7 @@ define([
       'angular',
       'angular.route', 
       'angular-sails',
+      'angular.ui.bootstrap',
       './controllers/index',
       './directives/index',
       './services/index',
@@ -13,6 +14,7 @@ define([
      return ng.module('app', [
         'ngSails',
         'ngRoute',
+        'ui.bootstrap',
         'app.controllers',
         'app.directives',
         'app.services',

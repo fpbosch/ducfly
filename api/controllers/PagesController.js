@@ -17,12 +17,21 @@
 
 module.exports = {
 	getAll: function(req,res) {
-	
-		console.log('getAll');
 
-		return res.json([{'id':'1', 'title':'The One','body':'This is the body'},{'id':'2', 'title':'The two','body':'This is the body'}])
+		Pages.find({}).done(function(err, pages) {	
+
+			console.log('getAll');
+
+			if (err)
+				return res.json({'status':'erro'},500);
+
+			if (pages)
+				return res.json(pages,200);
+
+			//return res.json([{'id':'1', 'title':'The One','body':'This is the body'},{'id':'2', 'title':'The two','body':'This is the body'}])
+
+		})
 	},    
 	_config: {}
 
-  
 };

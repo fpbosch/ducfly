@@ -1,2 +1,3 @@
-define(['./navigation'
+define(['./navigation',
+	'./macareta'
 ], function () {});
