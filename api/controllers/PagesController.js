@@ -16,7 +16,7 @@
  */
 
 module.exports = {
-	getAll: function(req,res) {
+	/*getAll: function(req,res) {
 
 		Pages.find({}).done(function(err, pages) {	
 
@@ -28,10 +28,8 @@ module.exports = {
 			if (pages)
 				return res.json(pages,200);
 
-			//return res.json([{'id':'1', 'title':'The One','body':'This is the body'},{'id':'2', 'title':'The two','body':'This is the body'}])
-
 		})
-	},    
+	},*/    
 	_config: {}
 
 };

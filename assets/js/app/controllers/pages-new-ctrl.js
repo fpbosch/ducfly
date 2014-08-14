@@ -4,7 +4,7 @@ define(['./module'], function (controllers) {
 
   	$scope.ok = function(title, body) {
   		console.log('El body: '+body);
-		var result = pagesService.save(title, body).success(function(page) {
+		var result = pagesService.create(title, body).success(function(page) {
 			$scope.result = page;
 		}).error(function (data) {
 			alert('Houston, we got a problem!');

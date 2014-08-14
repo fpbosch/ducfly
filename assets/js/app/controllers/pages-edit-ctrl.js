@@ -9,6 +9,18 @@ define(['./module'], function (controllers) {
 		alert('Houston, we got a problem!');
 	});
 
+	$scope.ok = function(id, title, body) {
+  		console.log('El body: '+body);
+		var result = pagesService.update(id, title, body).success(function(page) {
+			$scope.result = page;
+		}).error(function (data) {
+			alert('Houston, we got a problem!');
+		});
+	
+	}
+
+
+
   }]);
 
 });
