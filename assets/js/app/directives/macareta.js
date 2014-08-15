@@ -4,7 +4,8 @@ define(['./module'], function (directives) {
 
   		$scope.clickedElement='Element';
   		$scope.previewEdit='';
-  		$scope.myModel='hola';
+  		$scope.myModel='';
+    	$scope.editorEnabled = true;
   		//$scope.myModel='ostia';
 
   		var _tagH1 = document.createElement("h1");
@@ -72,6 +73,15 @@ define(['./module'], function (directives) {
 	    	wrapSelection('h2');
 
 	    };
+
+		$scope.edit_html = function() {
+
+			$scope.editorEnabled = !$scope.editorEnabled;
+  		
+  			console.log('edit_html clicked');
+	    
+	    };
+
 
 	    $scope.cmd_show_modal = function() {
 

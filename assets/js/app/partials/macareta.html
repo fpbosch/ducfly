@@ -42,12 +42,15 @@
 			<button ng-click="cmd_show_modal()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
 				show modal
 			</button>
+			<button ng-click="edit_html()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				Edit html
+			</button>
 		</div>
 	
-	<label class="textarea"> 	
+	<label ng-show="editorEnabled" class="textarea"> 	
 		<div style="min-height:300px;border:1px solid #CCC;" contenteditable ng-model='myModel' rows='3' class='custom-scroll'></div>
 	</label>
-	<label class="textarea"> 	
+	<label ng-hide="editorEnabled" class="textarea"> 	
 		<textarea name='body' ng-model='myModel' rows='3' class='custom-scroll'></textarea>
 	</label>
 	<div>

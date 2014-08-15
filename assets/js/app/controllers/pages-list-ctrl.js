@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('PagesListCtrl', ['$scope', 'pagesService', function ($scope, pagesService) {
+  controllers.controller('PagesListCtrl', ['$scope', '$modal', 'pagesService', function ($scope, $modal, pagesService) {
 
 	$scope.sortingOrder = 'title';
     $scope.reverse = false;
@@ -27,13 +27,30 @@ define(['./module'], function (controllers) {
 
 	$scope.deleteInfo = function(id) {
   
-		var result = pagesService.deleteInfo(id).success(function(data) {
-			$scope.result = data;
-		}).error(function (data) {
-			alert('Houston, we got a problem!');
+		var modalInstance = $modal.open({
+        	templateUrl: 'js/app/partials/pages/delete-dlg.html',
+		    controller: DeleteInstanceCtrl,
+		    size: 'xs',
+		    resolve: {
+		           
+		    }
 		});
-	
-	}
+
+		modalInstance.result.then(function (data) {
+
+			var result = pagesService.deleteInfo(id).success(function(data) {
+				$scope.result = data;
+			}).error(function (data) {
+				alert('Houston, we got a problem!');
+			});
+			        
+		}, function () {
+
+			console.log('Dialog canceled!!!!!');
+
+	    });
+
+	};
 
 	$scope.prevPage = function () {
         if ($scope.currentPage > 0) {
@@ -100,6 +117,28 @@ define(['./module'], function (controllers) {
         }
     };
     
+    var DeleteInstanceCtrl = function ($scope, $sce,$http, $modalInstance, pagesService) {
+
+      $scope.ok = function () {
+
+		/*var result = pagesService.deleteInfo(id).success(function(data) {
+			$scope.result = data;
+		}).error(function (data) {
+			alert('Houston, we got a problem!');
+		});*/
+
+        $modalInstance.close();
+
+      };
+
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+
+    };
+
+
+
   }]);
 
 });
