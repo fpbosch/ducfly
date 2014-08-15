@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('PagesListCtrl', ['$scope', '$modal', 'pagesService', function ($scope, $modal, pagesService) {
+  controllers.controller('PagesListCtrl', ['$scope', '$modal', 'pagesService', function ($scope, $modal, itemService) {
 
 	$scope.sortingOrder = 'title';
     $scope.reverse = false;
@@ -9,7 +9,7 @@ define(['./module'], function (controllers) {
     $scope.pagedItems = [];
     $scope.currentPage = 0;
 
-	var result = pagesService.getAll().success(function(data) {
+	var result = itemService.getAll().success(function(data) {
 		//console.log(data);
 		$scope.items = data;
 
@@ -28,7 +28,7 @@ define(['./module'], function (controllers) {
 	$scope.deleteInfo = function(id) {
   
 		var modalInstance = $modal.open({
-        	templateUrl: 'js/app/partials/pages/delete-dlg.html',
+        	templateUrl: 'js/app/partials/delete-dlg.html',
 		    controller: DeleteInstanceCtrl,
 		    size: 'xs',
 		    resolve: {
@@ -38,7 +38,7 @@ define(['./module'], function (controllers) {
 
 		modalInstance.result.then(function (data) {
 
-			var result = pagesService.deleteInfo(id).success(function(data) {
+			var result = itemService.deleteInfo(id).success(function(data) {
 				$scope.result = data;
 			}).error(function (data) {
 				alert('Houston, we got a problem!');

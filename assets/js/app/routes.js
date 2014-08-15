@@ -22,7 +22,7 @@ define(['./app'], function (app) {
             controller: 'PagesListCtrl'
           });
 
-          $routeProvider.when('/pages/:pageId/edit', {
+          $routeProvider.when('/pages/:itemId/edit', {
             templateUrl: 'js/app/partials/pages/pages-edit.html', 
             controller: 'PagesEditCtrl'
           });
