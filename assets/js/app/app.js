@@ -2,6 +2,7 @@ define([
       'angular',
       'angular.route', 
       'angular-sails',
+      'ng-file-upload',
       'angular.ui.bootstrap',
       './controllers/index',
       './directives/index',
@@ -14,6 +15,7 @@ define([
      return ng.module('app', [
         'ngSails',
         'ngRoute',
+        'angularFileUpload',
         'ui.bootstrap',
         'app.controllers',
         'app.directives',

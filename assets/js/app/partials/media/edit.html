@@ -1,7 +1,7 @@
 <div class="row">
 	{{result}}
 </div>
-<div class="row">
+<div class="row" ng-controller="PagesEditCtrl">
 	<!-- NEW COL START -->
 	<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
 				
@@ -37,7 +37,7 @@
 				
 				<!-- widget content -->
 				<div class="widget-body no-padding">
-					<form class="smart-form" ng-controller="PagesEditCtrl">
+					<form class="smart-form">
 						<header>
 							Standard Form Header
 						</header>
@@ -60,13 +60,6 @@
 							</section>
 						</fieldset>
 
-						<fieldset>
-												<div class="form-group">
-													<label>Order</label>
-													<input name="order" class="form-control"  placeholder="0" type="text" ng-model="item.order" >
-												</div>
-												
-											</fieldset>
 											
 
 
@@ -320,7 +313,13 @@
 												</div>
 												
 											</fieldset>
-											
+											<fieldset>
+												<div class="form-group">
+													<label>Order</label>
+														<input name="order" class="form-control"  placeholder="0" type="text" ng-model="item.order">
+												</div>
+											</fieldset>
+						
 											<div class="form-actions">
 												<button class="btn btn-primary btn-lg" disabled="disabled">
 													<i class="fa fa-save"></i>

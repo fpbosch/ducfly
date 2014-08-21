@@ -43,9 +43,9 @@ define(['./module'], function (services) {
 			  	
 		};
 
-		var create = function(title, body) {
+		var create = function(formData) {
 
-  			return $sails.post("http://localhost:1337/pages",{'title':title, 'body':body})
+  			return $sails.post("http://localhost:1337/pages", formData)
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      
@@ -54,7 +54,6 @@ define(['./module'], function (services) {
 		        //alert('Houston, we got a problem!');
 		      
 		      });
-
 
 		    $sails.on("message", function (message) {
 		    
@@ -67,9 +66,11 @@ define(['./module'], function (services) {
 		  	
 		};
 
-		var update = function(_id, title, body) {
+		var update = function(_id, formData) {
 
-  			return $sails.put("http://localhost:1337/pages/"+_id, {'title':title, 'body':body})
+			console.log(formData);
+
+  			return $sails.put("http://localhost:1337/pages/"+_id, formData)
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      

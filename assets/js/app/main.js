@@ -11,6 +11,9 @@ require.config({
 		'angular.ui.bootstrap': '/js/app/lib/angular-bootstrap/ui-bootstrap-tpls.min',
 		'sails-socket': '/js/app/lib/sails/socket-io',
 		'sails-io': '/js/app/lib/sails/sails-io',		
+		'ng-file-upload-shim': '/js/app/lib/ng-file-upload/angular-file-upload-shim.min',
+		'ng-file-upload': '/js/app/lib/ng-file-upload/angular-file-upload.min',		
+
 		/*'textAngular-sanitize':	'/js/app/lib/textAngular/dist/textAngular-sanitize.min',
 		'textAngular':	'/js/app/lib/textAngular/dist/textAngular.min'
   		*/
@@ -24,7 +27,7 @@ require.config({
 		'angular.ui.bootstrap': ['angular'],
 		'sails-io': ['sails-socket'],
 		'angular-sails': ['sails-io','sails-socket','angular'],
-		
+		'ng-file-upload': ['angular','ng-file-upload-shim']		
 		/*'textAngular-sanitize':['angular'],
 		'textAngular': ['textAngular-sanitize','angular']
 		*/

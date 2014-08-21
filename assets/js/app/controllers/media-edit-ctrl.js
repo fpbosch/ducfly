@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('PagesEditCtrl', ['$scope', '$routeParams', 'pagesService', function ($scope, $routeParams, itemService) {
+  controllers.controller('MediaEditCtrl', ['$scope', '$routeParams', 'pagesService', function ($scope, $routeParams, itemService) {
 
   	//$scope.title='';
   	//$scope.body='';

@@ -8,5 +8,8 @@ define([
 	'./pages-edit-ctrl',
 	'./pages-list-ctrl',
 	'./pages-new-ctrl',
+	'./media-edit-ctrl',
+	'./media-list-ctrl',
+	'./media-new-ctrl',
 	
 ], function () {});
