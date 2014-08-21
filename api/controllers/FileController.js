@@ -32,10 +32,13 @@ module.exports = {
       		if (err)
         		return res.serverError(err);
 
-	      return res.json({
-	        message: files.length + ' file(s) uploaded successfully!',
-	        files: files
-	      });
+        	console.log(files);
+
+			return res.json({
+				message: files.length + ' file(s) uploaded successfully!',
+				files: files
+			});
+			
 	    });
 
   		/*console.log('Arribem aqui'+sails.config.appPath + "/public/files/");
