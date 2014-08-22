@@ -7,13 +7,13 @@
  */
 
 module.exports = {
-
-  attributes: {
+	connection: 'someMongodbServer',
+	attributes: {
   	
   	/* e.g.
   	nickname: 'string'
   	*/
     
-  }
+  	}
 
 };

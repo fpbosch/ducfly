@@ -11,5 +11,6 @@ define([
 	'./media-edit-ctrl',
 	'./media-list-ctrl',
 	'./media-new-ctrl',
-	
+	'./home-ctrl',
+
 ], function () {});

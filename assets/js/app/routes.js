@@ -2,6 +2,11 @@ define(['./app'], function (app) {
     'use strict';
       return app.config(['$routeProvider', function ($routeProvider) {
 
+          $routeProvider.when('/', {
+            templateUrl: 'js/app/partials/home/index.html',
+            controller: 'HomeCtrl'
+          });
+  
           $routeProvider.when('/dashboard', {
             templateUrl: 'js/app/partials/dashboard.html',
             controller: 'MyDashboard'

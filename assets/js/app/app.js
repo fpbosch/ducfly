@@ -4,6 +4,7 @@ define([
       'angular-sails',
       'ng-file-upload',
       'angular.ui.bootstrap',
+      'angular-sanitize',
       './controllers/index',
       './directives/index',
       './services/index',
@@ -15,6 +16,7 @@ define([
      return ng.module('app', [
         'ngSails',
         'ngRoute',
+        'ngSanitize',
         'angularFileUpload',
         'ui.bootstrap',
         'app.controllers',

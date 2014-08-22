@@ -112,12 +112,65 @@ define(['./module'], function (services) {
 			  	
 		};
 
+		var publish = function(_id, formData) {
+
+  			return $sails.put("http://localhost:1337/pages/publish/"+_id, formData)
+		      .success(function (data) {
+		        //$scope.bars = data;
+		      
+		      })
+		      .error(function (data) {
+		        //alert('Houston, we got a problem!');
+		      
+		      });
+
+
+		    $sails.on("message", function (message) {
+		    
+		      if (message.verb === "create") {
+		        //$scope.bars.push(message.data);
+		      
+		      }
+
+		      if (message.verb === "update") {
+		      	console.log("model update by socket");
+		        //$scope.bars.push(message.data);
+		      
+		      }
+		    
+		    });
+		  	
+		};
+
+		var getAllFr = function() {
+
+  			return $sails.get("http://localhost:1337/FrontPages/getAllFr")
+		      .success(function (data) {
+		        //$scope.bars = data;
+		      })
+		      .error(function (data) {
+		        //alert('Houston, we got a problem!');
+		      });
+
+
+		    $sails.on("message", function (message) {
+		    
+		      if (message.verb === "create") {
+		        //$scope.bars.push(message.data);
+		      }
+		    
+		    });
+			  	
+		};
+
 		var pagesService = {
 			getAll:getAll,
 			getOne:getOne,
 			create:create,
 			update:update,
 			deleteInfo:deleteInfo,
+			publish:publish,
+			getAllFr:getAllFr,
 		};
 
 		return pagesService;

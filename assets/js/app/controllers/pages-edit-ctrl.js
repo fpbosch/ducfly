@@ -30,6 +30,19 @@ define(['./module'], function (controllers) {
 	
 	}
 
+	$scope.publish = function(id) {
+  		
+  		var formData = {
+  		};
+
+		var result = itemService.publish(id, formData).success(function(item) {
+			console.log(item);
+			$scope.result = item;
+		}).error(function (data) {
+			alert('Houston, we got a problem!');
+		});
+	
+	}
 
 
   }]);
