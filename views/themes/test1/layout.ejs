@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-controller="GeneralCtrl">
   <head>
     <!--
         For demonstration purposes, the `title` is dynamically set here based on
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="styles/smartadmin-production.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/smartadmin-skins.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/demo.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/theme.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/{{theme}}">
 
     <!--
 
@@ -42,8 +42,8 @@
 
   <body>
 
-    <!-- Include the view file for the current controller/route -->
-    <%- body %>
+     <!-- Include the view file for the current controller/route -->
+      <%- body %>
 
     <!--<ul class="menu">
       <li><a id="showView1" href="#/view1">show view1</a></li>
@@ -54,19 +54,11 @@
       <!-- RIBBON -->
       <!--<div id="ribbon" data-ng-include="'includes/ribbon.html'" data-ribbon=""></div>-->
       <!-- END RIBBON -->
-        <header id="header" data-ng-include="'js/app/partials/header.html'"></header>
-
-        <aside id="left-panel">
-              <ng-include src="'js/app/partials/leftAdminMenu.html'"></ng-include>
-        </aside>
-      
-        <!-- MAIN CONTENT -->
-        <div id="main" role="main">
-          <div id="content" data-ng-view="" class="view-animate"></div>
-        </div>
-        <!-- END MAIN CONTENT -->
-
-     
+        
+      <!-- MAIN CONTENT -->
+      <div data-ng-view="" class="view-animate"></div>
+      <!-- END MAIN CONTENT -->
+        
     <!--
 
       Client-side Javascript

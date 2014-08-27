@@ -1,10 +1,12 @@
 define(['./module'], function (services) {
 	'use strict';
-  services.service('pagesService', function ($http, $sails, localUrl) {
+  services.service('categoriesService', function ($http, $sails, localUrl) {
+
+  		console.log('CONSTANT LOCAL URL: '+localUrl);
 
   		var getAll = function() {
 
-  			return $sails.get(localUrl+"/pages")
+  			return $sails.get(localUrl+"/categories")
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      })
@@ -25,7 +27,7 @@ define(['./module'], function (services) {
 
 		var getOne = function(_Id) {
 
-  			return $sails.get(localUrl+"/pages/"+_Id)
+  			return $sails.get(localUrl+"/categories/"+_Id)
 		      .success(function (data) {
 		        //$scope.page = data;
 		      })
@@ -45,7 +47,7 @@ define(['./module'], function (services) {
 
 		var create = function(formData) {
 
-  			return $sails.post(localUrl+"/pages", formData)
+  			return $sails.post(localUrl+"/categories", formData)
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      
@@ -70,7 +72,7 @@ define(['./module'], function (services) {
 
 			console.log(formData);
 
-  			return $sails.put(localUrl+"/pages/"+_id, formData)
+  			return $sails.put(localUrl+"/categories/"+_id, formData)
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      
@@ -94,7 +96,7 @@ define(['./module'], function (services) {
 
 		var deleteInfo = function(_Id) {
 
-  			return $sails.delete(localUrl+"/pages/"+_Id)
+  			return $sails.delete(localUrl+"/categories/"+_Id)
 		      .success(function (data) {
 		        //$scope.page = data;
 		      })
@@ -114,7 +116,7 @@ define(['./module'], function (services) {
 
 		var publish = function(_id, formData) {
 
-  			return $sails.put(localUrl+"/pages/publish/"+_id, formData)
+  			return $sails.put(localUrl+"/categories/publish/"+_id, formData)
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      
@@ -144,7 +146,7 @@ define(['./module'], function (services) {
 
 		var getAllFr = function() {
 
-  			return $sails.get(localUrl+"/FrontPages/getAllFr")
+  			return $sails.get(localUrl+"/Frontcategories/getAllFr")
 		      .success(function (data) {
 		        //$scope.bars = data;
 		      })
@@ -163,7 +165,7 @@ define(['./module'], function (services) {
 			  	
 		};
 
-		var pagesService = {
+		var categoriesService = {
 			getAll:getAll,
 			getOne:getOne,
 			create:create,
@@ -173,7 +175,7 @@ define(['./module'], function (services) {
 			getAllFr:getAllFr,
 		};
 
-		return pagesService;
+		return categoriesService;
 
   });
   	

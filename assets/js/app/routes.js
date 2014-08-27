@@ -22,6 +22,11 @@ define(['./app'], function (app) {
             controller: 'MyCtrl2'
           });
 
+          $routeProvider.when('/categories', {
+            templateUrl: 'js/app/partials/categories/list.html',   
+            controller: 'CategoriesListCtrl'
+          });
+
           $routeProvider.when('/pages', {
             templateUrl: 'js/app/partials/pages/list.html',   
             controller: 'PagesListCtrl'
@@ -44,7 +49,7 @@ define(['./app'], function (app) {
 
           $routeProvider.when('/media/:itemId/edit', {
             templateUrl: 'js/app/partials/media/edit.html', 
-            controller: 'MaediaEditCtrl'
+            controller: 'MediaEditCtrl'
           });
 
           $routeProvider.when('/media/new', {
@@ -52,6 +57,20 @@ define(['./app'], function (app) {
             controller: 'MediaNewCtrl'
           });
 
+          $routeProvider.when('/menus', {
+            templateUrl: 'js/app/partials/menus/list.html',   
+            controller: 'MenusListCtrl'
+          });
+
+          $routeProvider.when('/menus/:itemId/edit', {
+            templateUrl: 'js/app/partials/menus/edit.html', 
+            controller: 'MenusEditCtrl'
+          });
+
+          $routeProvider.when('/menus/new', {
+            templateUrl: 'js/app/partials/menus/new.html', 
+            controller: 'MenusNewCtrl'
+          });
 
  
           $routeProvider.otherwise({

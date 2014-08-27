@@ -8,7 +8,14 @@ define(['./module'], function (directives) {
     	$scope.editorEnabled = true;
   		//$scope.myModel='ostia';
 
-  		var _tagH1 = document.createElement("h1");
+  		//var _tagH1 = document.createElement("h1");
+  		var _tagH1='h1';
+  		var _tagH2='h2';
+  		var _tagH3='h3';
+		var _tagH4='h4';
+		var _tagH5='h5';
+		var _tagH6='h6';
+		var _tagH6='p';
 
 		var sel='';
 
@@ -41,38 +48,36 @@ define(['./module'], function (directives) {
 	        }
 		};
 
-  		$scope.cmd_h1 = function() {
+  		$scope.cmd_wrap = function(_tag) {
 
-  			console.log('cmd_h1 clicked');
-	    	$scope.clickedElement = 'cmd_h1';
+  			console.log('wrap clicked: '+_tag);
+	    	$scope.clickedElement = _tag;
 
-	    	wrapSelection('h1');
-	    	
-	    	
-  			/*if (sel) {
-				
-				console.log(t);
-						
-				var range = $window.getSelection();
-									
-				console.log('Range: '+range);	
-				console.log('Range: '+range.getRangeAt(0));	
-						
-				var cloneRange = range.getRangeAt(0).cloneRange();
-				cloneRange.surroundContents(_tagH1);
-				range.removeAllRanges();
-			}*/
-
+	    	wrapSelection(_tag);
 
 	    };
 
-	    $scope.cmd_h2 = function() {
-  			console.log('cmd_h2 clicked');
-	    	$scope.clickedElement = 'cmd_h2';
+		$scope.cmd_img = function(_tag) {
 
-	    	wrapSelection('h2');
+  			console.log('wrap clicked: '+_tag);
+	    	$scope.clickedElement = _tag;
+
+	    	var range='';
+	    	//sel = $window.getSelection();
+	        if (sel.rangeCount) {
+	            range = sel.getRangeAt(0);
+	          	console.log('A dins');  
+	            //range.insertContents('gjjgjg');
+	            var imgContent = document.createElement('img');
+	            imgContent.src="/img/iphone5_two.png";
+	            range.surroundContents(imgContent);
+	        }
+
+	    	//range.appendContents('HELLO');
+	    	//wrapSelection(_tag);
 
 	    };
+
 
 		$scope.edit_html = function() {
 

@@ -9,7 +9,10 @@ define([
 ], function (require, ng) {
      'use strict';
  
-     require(['domReady!'], function (document) {
-         ng.bootstrap(document, ['app']);
-     });
+ 	/*ng.element(document).ready(function() {
+		ng.bootstrap(document, ['app']);
+    });*/
+    require(['domReady!'], function (document) {
+        ng.bootstrap(document, ['app']);
+    });
 });

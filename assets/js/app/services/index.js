@@ -1,2 +1,4 @@
-define(['./pagesService'
+define([
+	'./pagesService',
+	'./categoriesService',
 ], function () {});

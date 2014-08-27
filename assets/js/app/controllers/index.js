@@ -1,9 +1,11 @@
 define([
 	'./my-ctrl-1',
 	'./my-ctrl-2',
+	'./general-ctrl',
 	'./my-dashboard',
 	'./hori-admin-menu',
 	'./left-admin-menu',
+	'./categories-list-ctrl',
 	'./pages-detail-ctrl',
 	'./pages-edit-ctrl',
 	'./pages-list-ctrl',
@@ -11,6 +13,9 @@ define([
 	'./media-edit-ctrl',
 	'./media-list-ctrl',
 	'./media-new-ctrl',
+	'./menus-edit-ctrl',
+	'./menus-list-ctrl',
+	'./menus-new-ctrl',
 	'./home-ctrl',
 
 ], function () {});

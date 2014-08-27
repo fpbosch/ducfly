@@ -24,5 +24,5 @@ define([
         'app.services',
          // call your 'app.directives',
          // call your 'app.filters',
-     ]);
+     ]).constant('localUrl', 'http://localhost:1337');
 });

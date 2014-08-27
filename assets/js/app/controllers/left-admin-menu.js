@@ -5,6 +5,7 @@ define(['./module'], function (controllers) {
   	$scope.showPostOptions='none';
   	$scope.showPageOptions='none';
 	$scope.showMediaOptions='none';
+	$scope.showAppearanceOptions='none';
 
 	$scope.show_post_options = function() {
 
@@ -32,6 +33,16 @@ define(['./module'], function (controllers) {
 	  		$scope.showMediaOptions='none';
 
 	};
+
+	$scope.show_appearance_options = function() {
+
+	  	if ($scope.showAppearanceOptions=='none') 
+	  		$scope.showAppearanceOptions='block';
+	  	else
+	  		$scope.showAppearanceOptions='none';
+
+	};
+
 
 
   }]);

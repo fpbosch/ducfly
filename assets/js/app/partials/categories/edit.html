@@ -1,3 +1,6 @@
+<div class="row">
+	{{result}}
+</div>
 <div class="row" ng-controller="PagesEditCtrl">
 	<!-- NEW COL START -->
 	<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
@@ -61,11 +64,6 @@
 
 
 						<footer>
-
-							<button  class="btn btn-primary" ng-click="publish(item.id)">
-								Publish
-							</button>
-
 
 							<button type="submit" class="btn btn-primary" ng-click="ok(item.id, item.title, item.body, item.order)">
 								Submit
@@ -343,4 +341,3 @@
 	</article>
 	<!-- END COL -->
 </div>
-
