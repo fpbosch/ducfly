@@ -27,6 +27,11 @@ define(['./app'], function (app) {
             controller: 'CategoriesListCtrl'
           });
 
+          $routeProvider.when('/categories/:itemId/edit', {
+            templateUrl: 'js/app/partials/categories/edit.html', 
+            controller: 'CategoriesEditCtrl'
+          });
+
           $routeProvider.when('/pages', {
             templateUrl: 'js/app/partials/pages/list.html',   
             controller: 'PagesListCtrl'

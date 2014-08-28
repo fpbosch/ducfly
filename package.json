@@ -22,7 +22,8 @@
     "grunt-contrib-less": "0.11.1",
     "grunt-contrib-coffee": "~0.10.1",
     "skipper-disk": "^0.5.3",
-    "sails-redis": "^0.10.2"
+    "sails-redis": "^0.10.2",
+    "passport": "^0.2.0"
   },
   "scripts": {
     "start": "node app.js",

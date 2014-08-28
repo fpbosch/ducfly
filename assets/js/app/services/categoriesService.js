@@ -2,8 +2,6 @@ define(['./module'], function (services) {
 	'use strict';
   services.service('categoriesService', function ($http, $sails, localUrl) {
 
-  		console.log('CONSTANT LOCAL URL: '+localUrl);
-
   		var getAll = function() {
 
   			return $sails.get(localUrl+"/categories")
@@ -13,16 +11,7 @@ define(['./module'], function (services) {
 		      .error(function (data) {
 		        //alert('Houston, we got a problem!');
 		      });
-
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      }
-		    
-		    });
-			  	
+	  	
 		};
 
 		var getOne = function(_Id) {
@@ -34,14 +23,6 @@ define(['./module'], function (services) {
 		      .error(function (data) {
 		        //alert('Houston, we got a problem!');
 		      });
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      }
-		    
-		    });
 			  	
 		};
 
@@ -57,20 +38,9 @@ define(['./module'], function (services) {
 		      
 		      });
 
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      
-		      }
-		    
-		    });
-		  	
 		};
 
 		var update = function(_id, formData) {
-
-			console.log(formData);
 
   			return $sails.put(localUrl+"/categories/"+_id, formData)
 		      .success(function (data) {
@@ -82,16 +52,6 @@ define(['./module'], function (services) {
 		      
 		      });
 
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      
-		      }
-		    
-		    });
-		  	
 		};
 
 		var deleteInfo = function(_Id) {
@@ -103,14 +63,6 @@ define(['./module'], function (services) {
 		      .error(function (data) {
 		        //alert('Houston, we got a problem!');
 			});
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      }
-		    
-		    });
 			  	
 		};
 
@@ -125,22 +77,6 @@ define(['./module'], function (services) {
 		        //alert('Houston, we got a problem!');
 		      
 		      });
-
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      
-		      }
-
-		      if (message.verb === "update") {
-		      	console.log("model update by socket");
-		        //$scope.bars.push(message.data);
-		      
-		      }
-		    
-		    });
 		  	
 		};
 
@@ -153,15 +89,6 @@ define(['./module'], function (services) {
 		      .error(function (data) {
 		        //alert('Houston, we got a problem!');
 		      });
-
-
-		    $sails.on("message", function (message) {
-		    
-		      if (message.verb === "create") {
-		        //$scope.bars.push(message.data);
-		      }
-		    
-		    });
 			  	
 		};
 

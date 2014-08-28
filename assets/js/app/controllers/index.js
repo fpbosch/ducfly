@@ -6,6 +6,7 @@ define([
 	'./hori-admin-menu',
 	'./left-admin-menu',
 	'./categories-list-ctrl',
+	'./categories-edit-ctrl',
 	'./pages-detail-ctrl',
 	'./pages-edit-ctrl',
 	'./pages-list-ctrl',

@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('CategoriesListCtrl', ['$scope','$sails', '$modal', 'categoriesService', function ($scope, $sails, $modal, itemService) {
+  controllers.controller('CategoriesEditCtrl', ['$scope','$routeParams', '$sails', '$modal', 'categoriesService', function ($scope, $routeParams, $sails, $modal, itemService) {
 
 	$scope.sortingOrder = 'title';
     $scope.reverse = false;
@@ -9,7 +9,13 @@ define(['./module'], function (controllers) {
     $scope.pagedItems = [];
     $scope.currentPage = 0;
 
-	var result = itemService.getAll().success(function(data) {
+    var result = itemService.getOne($routeParams.itemId).success(function(data) {
+        $scope.item = data;
+    }).error(function (data) {
+        alert('Houston, we got a problem!');
+    });
+
+	var result2 = itemService.getAll().success(function(data) {
 		//console.log(data);
 		$scope.items = data;
 
@@ -31,24 +37,20 @@ define(['./module'], function (controllers) {
 
     }
 
-    $scope.ok = function(name, slug, description) {
+    $scope.ok = function(id, name, slug, description) {
 
         var formData = {
             'name':name,
             'slug':slug,
             'description':description
         };
-
-        console.log(formData);
         
-        var result = itemService.create(formData).success(function(item) {
-
+        var result = itemService.update(id, formData).success(function(item) {
             $scope.result = item;
-
         }).error(function (data) {
             alert('Houston, we got a problem!');
         });
-    
+
     }
 
 
@@ -164,12 +166,6 @@ define(['./module'], function (controllers) {
 
     };
 
-    $scope.addRow = function(item) { 
-        console.log('ITEM TO PUSH: '+JSON.stringify(item));
-        $scope.items.push(item); 
-        $scope.assignPagedItems($scope.items);
-    }
-
     $scope.updateRow = function(item) { 
         console.log('ITEM TO PUSH: '+JSON.stringify(item));
         
@@ -186,16 +182,9 @@ define(['./module'], function (controllers) {
     }
 
     $sails.on("message", function (message) {
-
         if (message.verb === "update") {
             $scope.updateRow(message.data);
             console.log('CALLED SOCKET TO UPDATE A CATEGORY!!!!: '+JSON.stringify(message));
-            //$scope.bars.push(message.data);
-        }
-
-        if (message.verb === "create") {
-            $scope.addRow(message.data);
-            console.log('CALLED SOCKET TO CREAT EA CATEGORIE!!!!: '+JSON.stringify(message));
             //$scope.bars.push(message.data);
         }
     });

@@ -1,343 +1,184 @@
-<div class="row">
-	{{result}}
-</div>
-<div class="row" ng-controller="PagesEditCtrl">
-	<!-- NEW COL START -->
-	<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
-				
-		<!-- Widget ID (each widget will need unique ID)-->
-		<div class="jarviswidget jarviswidget-sortable" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false" role="widget">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-			<header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
-			<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-			<h2>Edit page</h2>
-				
-			<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
-				
-			<!-- widget div-->
-			<div role="content">
-				
-				<!-- widget edit box -->
-				<div class="jarviswidget-editbox">
-					<!-- This area used as dropdown edit box -->
-				</div>
-				<!-- end widget edit box -->
-				
-				<!-- widget content -->
-				<div class="widget-body no-padding">
-					<form class="smart-form">
-						<header>
-							Standard Form Header
-						</header>
-				
-						<fieldset>									
-							<section>
-								<label class="label">Default text input with maxlength</label>
-								<label class="input">
-									<input type="text" maxlength="10" ng-model="item.title" name="title">
-								</label>
-								<div class="note">
-									<strong>Maxlength</strong> is automatically added via the "maxlength='#'" attribute
-								</div>
-							</section>														
-						</fieldset>
+<header id="header" data-ng-include="'js/app/partials/header.html'"></header>
 
-						<fieldset>
-							<section>
-								<macareta my-model-attr="item.body"></macareta>
-							</section>
-						</fieldset>
+<aside id="left-panel">
+ 	<ng-include src="'js/app/partials/leftAdminMenu.html'"></ng-include>
+</aside>
+       
+<div id="main" role="main">
+	<div id="content">
 
-											
+		<div class="row">
+		
+			<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
 
-
-						<footer>
-
-							<button type="submit" class="btn btn-primary" ng-click="ok(item.id, item.title, item.body, item.order)">
-								Submit
-							</button>
-
-							<button type="button" class="btn btn-default" onclick="window.history.back();">
-								Back
-							</button>
-							
-						</footer>
-					</form>
-				</div>
-				<!-- end widget content -->	
-			</div>
-			<!-- end widget div -->	
-		</div>
-		<!-- end widget -->	
-	</article>
-	<!-- END COL -->
-
-	<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
-				
-						<div class="jarviswidget jarviswidget-sortable" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget" style="">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
-									<span class="widget-icon"> <i class="fa fa-eye-slash"></i> </span>
-									<h2>Publish</h2>
-				
-								<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
-				
-								<!-- widget div-->
-								<div role="content">
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body">
-				
-										<form class="form-horizontal">
-											
-											<fieldset>
-												<legend>Status</legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Status</label>
-													<div class="col-md-10">
-														<select class="form-control">
-															<option>Draft</option>
-															<option>Pending Review</option>
-														</select>
-													</div>
-												</div>
-												
-											</fieldset>
-											
-											
-											
-											<fieldset>
-												<legend>Visibility <small>(disabled)</small></legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Visibility</label>
-													<div class="col-md-10">
-														
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" disabled="disabled" name="checkbox-3" value="">
-																Public</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" disabled="disabled" name="checkbox-3" value="">
-																Passowrd Protected</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" disabled="disabled" name="checkbox-3" value="">
-																Private</label>
-														</div>
-													</div>
-												</div>
-												
-											</fieldset>
-											
-											<fieldset>
-												<legend>Visibility<small>(disabled)</small></legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Visibility</label>
-													<div class="col-md-10">
-														<div class="radio">
-															<label>
-																<input type="radio" disabled="disabled" name="radio-3" value="">
-																Public
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" disabled="disabled" name="radio-3" value="">
-																Password Protected
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" disabled="disabled" name="radio-3" value="">
-																Private
-															</label>
-														</div>
-													</div>
-												</div>
-												
-											</fieldset>
-				
-											<fieldset>
-												<legend>Featured Image<small>(disabled)</small></legend>
-											
-												<div class="form-group">
-													<label class="col-md-2 control-label">File input</label>
-													<div class="col-md-10">
-														<input type="file" class="btn btn-default" disabled="disabled" id="exampleInputFile2">
-														<p class="help-block">
-															some help text here.
-														</p>
-													</div>
-												</div>
-												
-											</fieldset>
-				
-											<div class="form-actions">
-												<div class="row">
-													<div class="col-md-12">
-														<button class="btn btn-primary" disabled="disabled" type="submit">
-															<i class="fa fa-save"></i>
-															Submit
-														</button>
-														<button class="btn btn-default" disabled="disabled" type="submit">
-															Cancel
-														</button>
-													</div>
-												</div>
-											</div>
-				
-										</form>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div><div class="jarviswidget jarviswidget-sortable" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget" style="">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
-									<span class="widget-icon"> <i class="fa fa-eye-slash"></i> </span>
-									<h2>Page Atributes</h2>
-				
-								<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
-				
-								<!-- widget div-->
-								<div role="content">
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body">
-				
-										<form>
-											<fieldset>
-												<legend>Parent</legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Parent</label>
-													<div class="col-md-10">
-														<select class="form-control">
-															<option>Draft</option>
-															<option>Pending Review</option>
-														</select>
-													</div>
-												</div>
-												
-											</fieldset>
-											<fieldset>
-												<legend>Template</legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Template</label>
-													<div class="col-md-10">
-														<select class="form-control">
-															<option>Draft</option>
-															<option>Pending Review</option>
-														</select>
-													</div>
-												</div>
-												
-											</fieldset>
-											<fieldset>
-												<legend>Author</legend>
-												<div class="form-group">
-													<label class="col-md-2 control-label">Author</label>
-													<div class="col-md-10">
-														<select class="form-control">
-															<option>Draft</option>
-															<option>Pending Review</option>
-														</select>
-													</div>
-												</div>
-												
-											</fieldset>
-											<fieldset>
-												<div class="form-group">
-													<label>Order</label>
-														<input name="order" class="form-control"  placeholder="0" type="text" ng-model="item.order">
-												</div>
-											</fieldset>
 						
-											<div class="form-actions">
-												<button class="btn btn-primary btn-lg" disabled="disabled">
-													<i class="fa fa-save"></i>
-													Submit
-												</button>
-											</div>
-											
-										</form>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
+					<!-- Widget ID (each widget will need unique ID)-->
+					
+					<!-- end widget -->
+					
+					<!-- Widget ID (each widget will need unique ID)-->
+					
+					<!-- end widget -->				
+
+					<!-- Widget ID (each widget will need unique ID)-->
+					
+					<!-- end widget -->	
+
+				<div class="jarviswidget jarviswidget-sortable" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" style="">
+						<!-- widget options:
+							usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+							
+							data-widget-colorbutton="false"	
+							data-widget-editbutton="false"
+							data-widget-togglebutton="false"
+							data-widget-deletebutton="false"
+							data-widget-fullscreenbutton="false"
+							data-widget-custombutton="false"
+							data-widget-collapsed="true" 
+							data-widget-sortable="false"
+							
+						-->
+						<header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu"><a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li><li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li><li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+							<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+							<h2>Category Form </h2>				
+							
+						<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+						<!-- widget div-->
+						<div role="content">
+							
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+								
 							</div>
-				
+							<!-- end widget edit box -->
+							
+							<!-- widget content -->
+							<div class="widget-body no-padding">
+								
+								<form id="checkout-form" class="smart-form" novalidate="novalidate">
+
+									<fieldset>
+										
+										<section>
+											<label for="name" class="input">
+												<input type="text" name="name" id="address2" ng-model="item.name" placeholder="Name">
+											</label>
+										</section>
+
+										<section>
+											<label for="slug" class="input">
+												<input type="text" name="slug" id="address2" ng-model="item.slug" placeholder="Slug">
+											</label>
+										</section>
+
+										<section>
+											<label class="textarea"> 										
+												<textarea rows="3" name="description" ng-model="item.description" placeholder="Description"></textarea> 
+											</label>
+										</section>
+									</fieldset>
+
+									<footer>
+										<button type="submit" ng-click="ok(item.id, item.name, item.slug, item.description)" class="btn btn-primary">
+											Validate Form
+										</button>
+									</footer>
+								</form>
+
+							</div>
+							<!-- end widget content -->
+							
 						</div>
-	</article>
-	<!-- END COL -->
+						<!-- end widget div -->
+						
+					</div>
+
+			</article>
+			<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+
+				<div class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable" id="wid-id-1" data-widget-editbutton="false" role="widget">
+					<header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu"><a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li><li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li><li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+					<h2>Column Filters </h2>
+						
+					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+						
+						<!-- widget div-->
+						<div role="content">
+						
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+							<!-- This area used as dropdown edit box -->
+							</div>
+							<!-- end widget edit box -->
+						
+							<!-- widget content -->
+							<div class="widget-body no-padding">
+						
+								<div id="datatable_fixed_column_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="dt-toolbar"><div class="col-xs-12 col-sm-6 hidden-xs"><div id="datatable_fixed_column_filter" class="dataTables_filter"><label><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span> <input type="search" class="form-control" aria-controls="datatable_fixed_column"></label></div></div><div class="col-sm-6 col-xs-12 hidden-xs"><div class="toolbar"><div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div></div></div></div><table id="datatable_fixed_column" class="table table-striped table-bordered dataTable no-footer" width="100%" role="grid" aria-describedby="datatable_fixed_column_info" style="width: 100%;">
+							
+									<thead>
+										
+										<tr role="row">
+											<th class="hasinput" style="width:17%" rowspan="1" colspan="1">
+												<input type="text" ng-model="criteria" class="form-control" placeholder="Filter">
+											</th>
+											
+											<th class="hasinput icon-addon" rowspan="1" colspan="1">
+												<input id="dateselect_filter" type="text" placeholder="Filter Date" class="form-control datepicker hasDatepicker" data-dateformat="yy/mm/dd">
+												<label for="dateselect_filter" class="glyphicon glyphicon-calendar no-margin padding-top-15" rel="tooltip" title="" data-original-title="Filter Date"></label>
+											</th>
+											
+										</tr>
+										<tr role="row">
+											<th data-class="expand" class="sorting_asc" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 144px;" aria-sort="ascending">Actions</th>
+											<th ng-click="sort_by('name')" data-class="expand" class="sorting_asc" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 144px;" aria-sort="ascending">Name</th>
+											<th ng-click="sort_by('slug')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Slug</th>
+											<th ng-click="sort_by('description')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Description</th>
+											<th ng-click="sort_by('date')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Date</th>
+										</tr>
+									</thead>
+						
+									<tbody ng-repeat="item in pagedItems[currentPage] | filter:criteria | orderBy:sortingOrder:reverse">
+
+										<tr role="row" class="odd">
+											<td>
+											    <a href="#/categories/{{item.id}}/edit" class="btn btn-xs btn-default" data-original-title="Edit Row"><i class="fa fa-pencil"></i></a>
+											    
+											    <a ng-click="deleteInfo(item.id)"class="btn btn-xs btn-default" data-original-title="Delete Row"><i class="fa fa-times"></i></a>
+											    
+											</td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>{{item.name}}</td>
+											<td>{{item.slug}}</td>
+											<td>{{item.description}}</td>
+											<td>{{item.updatedAt | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+										</tr>
+
+									</tbody>
+											
+								</table>
+
+								<div class="dt-toolbar-footer"><div class="col-sm-6 col-xs-12 hidden-xs"><div class="dataTables_info" id="datatable_fixed_column_info" role="status" aria-live="polite">Showing <span class="txt-color-darken">{{(currentPage*itemsPerPage)+1}}</span> to <span class="txt-color-darken">{{(pagedItems[currentPage].length*currentPage)+itemsPerPage}}</span> of <span class="text-primary">{{items.length}}</span> entries</div></div><div class="col-xs-12 col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="datatable_fixed_column_paginate"><ul class="pagination pagination-sm"><li ng-class="{disabled: currentPage == 0}" class="paginate_button previous " aria-controls="datatable_fixed_column" tabindex="0" id="datatable_fixed_column_previous"><a ng-click="prevPage()" >Previous</a></li>
+								
+								<li ng-repeat="n in range(pagedItems.length)"
+		                                    ng-class="{active: n == currentPage}"
+		                                ng-click="setPage()">
+		                            <a href ng-bind="n + 1">1</a>
+		                        </li>
+
+								<li ng-class="{disabled: currentPage == pagedItems.length - 1}" class="paginate_button next" aria-controls="datatable_fixed_column" tabindex="0" id="datatable_fixed_column_next"><a ng-click="nextPage()">Next</a></li></ul></div></div></div></div>
+						
+											</div>
+											<!-- end widget content -->
+						
+					</div>
+										<!-- end widget div -->
+						
+				</div>
+
+			</article>
+		</div>
+	</div>
 </div>

@@ -5,7 +5,7 @@ define(['./module'], function (controllers) {
 	$scope.bars = [];
 
   	(function () {
-	    $sails.get("http://localhost:1337/bar")
+	    $sails.get("http://localhost:1337/dashboard")
 	      .success(function (data) {
 	        $scope.bars = data;
 	      })
