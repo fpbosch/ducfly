@@ -30,5 +30,18 @@ module.exports = {
 		});
 	
 	},
+	destroy : function(req, res) {
+
+		var id = req.param('id');
+
+		sails.log.debug('DELETE CATEGORY ID: '+id);
+
+		Categories.destroy({id:id}).exec(function destroy(err){
+			
+			Categories.publishDestroy(id);		
+			
+		});
+	
+	},
 };
 

@@ -54,7 +54,7 @@ define(['./module'], function (services) {
 
 		};
 
-		var deleteInfo = function(_Id) {
+		var destroy = function(_Id) {
 
   			return $sails.delete(localUrl+"/categories/"+_Id)
 		      .success(function (data) {
@@ -97,7 +97,7 @@ define(['./module'], function (services) {
 			getOne:getOne,
 			create:create,
 			update:update,
-			deleteInfo:deleteInfo,
+			destroy:destroy,
 			publish:publish,
 			getAllFr:getAllFr,
 		};

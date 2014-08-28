@@ -39,8 +39,6 @@ define(['./module'], function (controllers) {
             'description':description
         };
 
-        console.log(formData);
-        
         var result = itemService.create(formData).success(function(item) {
 
             $scope.result = item;
@@ -50,7 +48,6 @@ define(['./module'], function (controllers) {
         });
     
     }
-
 
 	$scope.deleteInfo = function(id) {
   
@@ -65,7 +62,8 @@ define(['./module'], function (controllers) {
 
 		modalInstance.result.then(function (data) {
 
-			var result = itemService.deleteInfo(id).success(function(data) {
+			var result = itemService.destroy(id).success(function(data) {
+                console.log('PASSEM PER AQUI');
 				$scope.result = data;
 			}).error(function (data) {
 				alert('Houston, we got a problem!');
@@ -144,15 +142,9 @@ define(['./module'], function (controllers) {
         }
     };
     
-    var DeleteInstanceCtrl = function ($scope, $sce,$http, $modalInstance, pagesService) {
+    var DeleteInstanceCtrl = function ($scope, $sce, $http, $modalInstance) {
 
-      $scope.ok = function () {
-
-		/*var result = pagesService.deleteInfo(id).success(function(data) {
-			$scope.result = data;
-		}).error(function (data) {
-			alert('Houston, we got a problem!');
-		});*/
+      $scope.okDelete = function (id) {
 
         $modalInstance.close();
 
@@ -185,6 +177,22 @@ define(['./module'], function (controllers) {
         }
     }
 
+    $scope.destroyRow = function(id) { 
+        console.log('ITEM TO PUSH: '+JSON.stringify(id));
+        
+        for(var aux in $scope.items) {
+
+            if ($scope.items[aux].id==id) {
+                $scope.items.splice(aux,1);
+                $scope.assignPagedItems($scope.items);
+                break;
+            }       
+        
+
+        }
+    }
+
+
     $sails.on("message", function (message) {
 
         if (message.verb === "update") {
@@ -195,9 +203,18 @@ define(['./module'], function (controllers) {
 
         if (message.verb === "create") {
             $scope.addRow(message.data);
-            console.log('CALLED SOCKET TO CREAT EA CATEGORIE!!!!: '+JSON.stringify(message));
+            console.log('CALLED SOCKET TO CREAT A CATEGORY!!!!: '+JSON.stringify(message));
             //$scope.bars.push(message.data);
         }
+
+        if (message.verb === "destroy") {
+            //$scope.destroyRow(message.data);
+            console.log('CALLED SOCKET TO DESTROY A CATEGORY!!!!: '+JSON.stringify(message));
+            $scope.destroyRow(message.id);
+            
+            //$scope.bars.push(message.data);
+        }
+
     });
 
 

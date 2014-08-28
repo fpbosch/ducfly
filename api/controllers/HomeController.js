@@ -7,7 +7,6 @@
 
 module.exports = {
 	index: function(req, res) {
-		console.log('EOOOOOOOO');
 		res.view({_layoutFile: '../themes/test1/layout.ejs' });
 	},
 	_config: {}
