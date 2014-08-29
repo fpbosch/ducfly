@@ -63,8 +63,7 @@ define(['./module'], function (controllers) {
 		modalInstance.result.then(function (data) {
 
 			var result = itemService.destroy(id).success(function(data) {
-                console.log('PASSEM PER AQUI');
-				$scope.result = data;
+                $scope.result = data;
 			}).error(function (data) {
 				alert('Houston, we got a problem!');
 			});

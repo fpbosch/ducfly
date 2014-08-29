@@ -67,12 +67,12 @@ define(['./module'], function (controllers) {
 
 		modalInstance.result.then(function (data) {
 
-			var result = itemService.deleteInfo(id).success(function(data) {
-				$scope.result = data;
-			}).error(function (data) {
-				alert('Houston, we got a problem!');
-			});
-			        
+            var result = itemService.destroy(id).success(function(data) {
+                $scope.result = data;
+            }).error(function (data) {
+                alert('Houston, we got a problem!');
+            });
+		
 		}, function () {
 
 			console.log('Dialog canceled!!!!!');
@@ -148,13 +148,7 @@ define(['./module'], function (controllers) {
     
     var DeleteInstanceCtrl = function ($scope, $sce,$http, $modalInstance, pagesService) {
 
-      $scope.ok = function () {
-
-		/*var result = pagesService.deleteInfo(id).success(function(data) {
-			$scope.result = data;
-		}).error(function (data) {
-			alert('Houston, we got a problem!');
-		});*/
+      $scope.okDelete = function () {
 
         $modalInstance.close();
 
@@ -181,12 +175,36 @@ define(['./module'], function (controllers) {
         }
     }
 
+    $scope.destroyRow = function(id) { 
+        console.log('ITEM TO PUSH: '+JSON.stringify(id));
+        
+        for(var aux in $scope.items) {
+
+            if ($scope.items[aux].id==id) {
+                $scope.items.splice(aux,1);
+                $scope.assignPagedItems($scope.items);
+                break;
+            }       
+        
+
+        }
+    }
+
     $sails.on("message", function (message) {
         if (message.verb === "update") {
             $scope.updateRow(message.data);
             console.log('CALLED SOCKET TO UPDATE A CATEGORY!!!!: '+JSON.stringify(message));
             //$scope.bars.push(message.data);
         }
+
+        if (message.verb === "destroy") {
+            //$scope.destroyRow(message.data);
+            console.log('CALLED SOCKET TO DESTROY A CATEGORY!!!!: '+JSON.stringify(message));
+            $scope.destroyRow(message.id);
+            
+            //$scope.bars.push(message.data);
+        }
+
     });
 
 
