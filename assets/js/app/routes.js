@@ -7,6 +7,16 @@ define(['./app'], function (app) {
             controller: 'HomeCtrl'
           });
   
+          $routeProvider.when('/signup', {
+            templateUrl: 'js/app/partials/signup/new.html',
+            controller: 'SignupNewCtrl'
+          });
+  
+          $routeProvider.when('/login', {
+            templateUrl: 'js/app/partials/login/new.html',
+            controller: 'LoginNewCtrl'
+          });
+
           $routeProvider.when('/dashboard', {
             templateUrl: 'js/app/partials/dashboard.html',
             controller: 'MyDashboard'

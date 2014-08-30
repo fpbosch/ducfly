@@ -2,6 +2,8 @@ define([
 	'./my-ctrl-1',
 	'./my-ctrl-2',
 	'./general-ctrl',
+	'./signup-new-ctrl',
+	'./login-new-ctrl',
 	'./my-dashboard',
 	'./hori-admin-menu',
 	'./left-admin-menu',
