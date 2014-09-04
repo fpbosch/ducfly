@@ -25,8 +25,9 @@ module.exports.bootstrap = function(cb) {
 			
 				if (err) {
 					//return sails.config[500](500, req, res);
-					res.serverError();
-					
+					//res.serverError();
+					return res.json({'status':'error'},500);
+
 				}
         
 				for (var i = 0; i < methods.length; i++) {

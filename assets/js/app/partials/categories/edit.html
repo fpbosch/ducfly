@@ -8,6 +8,12 @@
 	<div id="content">
 
 		<div class="row">
+			<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+				<a href="#/categories" class="btn btn-primary">NEW CATEGORY</a>
+			</article>
+		</div>
+
+		<div class="row">
 		
 			<article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
 
@@ -63,25 +69,33 @@
 										
 										<section>
 											<label for="name" class="input">
-												<input type="text" name="name" id="address2" ng-model="item.name" placeholder="Name">
+												<input type="text" name="name" id="address2" ng-model="selectedItem.name" placeholder="Name">
 											</label>
 										</section>
 
 										<section>
 											<label for="slug" class="input">
-												<input type="text" name="slug" id="address2" ng-model="item.slug" placeholder="Slug">
+												<input type="text" name="slug" id="address2" ng-model="selectedItem.slug" placeholder="Slug">
+											</label>
+										</section>
+			
+										<section>						
+											<label class="select"> 					
+												<select class="form-control" ng-model="element" ng-options="element as element.name for element in items">	
+												</select>
+												<i></i>
 											</label>
 										</section>
 
 										<section>
 											<label class="textarea"> 										
-												<textarea rows="3" name="description" ng-model="item.description" placeholder="Description"></textarea> 
+												<textarea rows="3" name="description" ng-model="selectedItem.description" placeholder="Description"></textarea> 
 											</label>
 										</section>
 									</fieldset>
 
 									<footer>
-										<button type="submit" ng-click="ok(item.id, item.name, item.slug, item.description)" class="btn btn-primary">
+										<button type="submit" ng-click="ok(selectedItem.id, selectedItem.name, selectedItem.slug, element.name, selectedItem.description)" class="btn btn-primary">
 											Validate Form
 										</button>
 									</footer>
@@ -137,6 +151,7 @@
 											<th ng-click="sort_by('name')" data-class="expand" class="sorting_asc" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 144px;" aria-sort="ascending">Name</th>
 											<th ng-click="sort_by('slug')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Slug</th>
 											<th ng-click="sort_by('description')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Description</th>
+											<th ng-click="sort_by('parent')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Parent</th>
 											<th ng-click="sort_by('date')" class="sorting" tabindex="0" aria-controls="datatable_fixed_column" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 154px;">Date</th>
 										</tr>
 									</thead>
@@ -153,6 +168,7 @@
 											<td class="sorting_1"><span class="responsiveExpander"></span>{{item.name}}</td>
 											<td>{{item.slug}}</td>
 											<td>{{item.description}}</td>
+											<td>{{item.parent}}</td>
 											<td>{{item.updatedAt | date:'dd-MM-yyyy HH:mm:ss'}}</td>
 										</tr>
 

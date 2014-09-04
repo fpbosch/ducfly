@@ -10,16 +10,20 @@ require.config({
 		'angular-sails': '/js/app/lib/angular-sails/dist/angular-sails',
 		'angular.ui.bootstrap': '/js/app/lib/angular-bootstrap/ui-bootstrap-tpls.min',
 		'angular-sanitize': '/js/app/lib/angular-sanitize/angular-sanitize.min',
-		'sails-socket': '/js/app/lib/sails/socket-io',
-		'sails-io': '/js/app/lib/sails/sails-io',		
+		/*'sails-socket': '/js/app/lib/sails/socket-io',*/
+		'sails-io': '/js/app/lib/sails/sails-io',
 		'ng-file-upload-shim': '/js/app/lib/ng-file-upload/angular-file-upload-shim.min',
 		'ng-file-upload': '/js/app/lib/ng-file-upload/angular-file-upload.min',		
+		'underscore': '/js/app/lib/underscore/underscore-min',		
 
 		/*'textAngular-sanitize':	'/js/app/lib/textAngular/dist/textAngular-sanitize.min',
 		'textAngular':	'/js/app/lib/textAngular/dist/textAngular.min'
   		*/
 	},// angular does not support AMD out of the box, put it in a shim
 	shim: {
+		'underscore': {
+			exports: '_'
+		},
 		'angular': {
 			exports: 'angular'
 		},
@@ -27,8 +31,8 @@ require.config({
 		'getbootstrap': ['jquery'],
 		'angular-sanitize': ['angular'],
 		'angular.ui.bootstrap': ['angular'],
-		'sails-io': ['sails-socket'],
-		'angular-sails': ['sails-io','sails-socket','angular'],
+		/*'sails-io': ['sails-socket'],*/
+		'angular-sails': ['sails-io','angular'],
 		'ng-file-upload': ['angular','ng-file-upload-shim']		
 		/*'textAngular-sanitize':['angular'],
 		'textAngular': ['textAngular-sanitize','angular']

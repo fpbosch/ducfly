@@ -5,6 +5,7 @@ define([
       'ng-file-upload',
       'angular.ui.bootstrap',
       'angular-sanitize',
+      'underscore',
       './controllers/index',
       './directives/index',
       './services/index',

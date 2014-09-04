@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
 	'use strict';
-  controllers.controller('CategoriesListCtrl', ['$scope','$sails', '$modal', 'categoriesService', function ($scope, $sails, $modal, itemService) {
+  controllers.controller('CategoriesListCtrl', ['$scope', '$sails', '$modal', 'categoriesService', function ($scope, $sails, $modal, itemService) {
 
 	$scope.sortingOrder = 'title';
     $scope.reverse = false;
@@ -8,6 +8,7 @@ define(['./module'], function (controllers) {
     $scope.itemsPerPage = 5;
     $scope.pagedItems = [];
     $scope.currentPage = 0;
+    $scope.items = [];
 
 	var result = itemService.getAll().success(function(data) {
 		//console.log(data);
@@ -21,21 +22,37 @@ define(['./module'], function (controllers) {
 
     $scope.assignPagedItems= function(items) {
 
+        if (items.length>0) {
         for (var i = 0; i < $scope.items.length; i++) {
+            console.log('PASSEM PER AQUI');
             if (i % $scope.itemsPerPage === 0) {
                 $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.items[i] ];
             } else {
                 $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.items[i]);
             }
         }
+        } else {
+             $scope.pagedItems=[];
+        }
 
     }
 
-    $scope.ok = function(name, slug, description) {
+    $scope.toggled = function(open) {
+        console.log('Dropdown is now: ', open);
+    };
+
+    $scope.toggleDropdown = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.status.isopen = !$scope.status.isopen;
+    };
+
+    $scope.ok = function(name, slug, parent, description) {
 
         var formData = {
             'name':name,
             'slug':slug,
+            'parent':parent,
             'description':description
         };
 
@@ -176,37 +193,42 @@ define(['./module'], function (controllers) {
         }
     }
 
-    $scope.destroyRow = function(id) { 
-        console.log('ITEM TO PUSH: '+JSON.stringify(id));
+    $scope.destroyRow = function(id) {
+
+        console.log('ITEM TO DESTROY: '+JSON.stringify(id));
         
         for(var aux in $scope.items) {
 
             if ($scope.items[aux].id==id) {
+                console.log('REMOVE ITEM: '+aux);
                 $scope.items.splice(aux,1);
+                
                 $scope.assignPagedItems($scope.items);
+                
                 break;
             }       
-        
-
         }
     }
 
 
-    $sails.on("message", function (message) {
+    $sails.on("categories", function (message) {
 
-        if (message.verb === "update") {
+        console.log(message);
+
+
+        if (message.verb === "updated") {
             $scope.updateRow(message.data);
             console.log('CALLED SOCKET TO UPDATE A CATEGORY!!!!: '+JSON.stringify(message));
             //$scope.bars.push(message.data);
         }
 
-        if (message.verb === "create") {
-            $scope.addRow(message.data);
+        if (message.verb === "created") {
             console.log('CALLED SOCKET TO CREAT A CATEGORY!!!!: '+JSON.stringify(message));
+            $scope.addRow(message.data);
             //$scope.bars.push(message.data);
         }
 
-        if (message.verb === "destroy") {
+        if (message.verb === "destroyed") {
             //$scope.destroyRow(message.data);
             console.log('CALLED SOCKET TO DESTROY A CATEGORY!!!!: '+JSON.stringify(message));
             $scope.destroyRow(message.id);

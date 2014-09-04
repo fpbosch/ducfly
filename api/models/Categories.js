@@ -14,6 +14,40 @@ module.exports = {
   	nickname: 'string'
   	*/
     
+  	},
+  	beforeUpdate: function (values, cb) {
+
+  		Users.findOne({token:values.access_token}).exec(function(err, _item) {	
+
+  			if(err) return cb(err);
+  			
+  			delete values.access_token;
+  			
+        values.author = _item.username;
+
+  			sails.log.debug(values);
+
+  			cb();
+
+  		});
+
+  	},
+  	beforeCreate: function (values, cb) {
+
+  		Users.findOne({token:values.access_token}).exec(function(err, _item) {	
+
+  			if(err) return cb(err);
+  			
+  			delete values.access_token;
+  			
+        values.author = _item.username;
+
+  			sails.log.debug(values);
+
+  			cb();
+
+  		});
+
   	}
 
 };

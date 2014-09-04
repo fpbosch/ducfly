@@ -9,17 +9,41 @@ define(['./module'], function (controllers) {
     $scope.pagedItems = [];
     $scope.currentPage = 0;
 
-    var result = itemService.getOne($routeParams.itemId).success(function(data) {
-        $scope.item = data;
-    }).error(function (data) {
-        alert('Houston, we got a problem!');
-    });
 
 	var result2 = itemService.getAll().success(function(data) {
 		//console.log(data);
-		$scope.items = data;
-
+        console.log('ITEMS ESCOLLIT: '+JSON.stringify(data));
+        
+        $scope.items = data;
         $scope.assignPagedItems($scope.items);
+        //$scope.element = data[0];
+           
+        var result = itemService.getOne($routeParams.itemId).success(function(data2) {
+            
+            var auxArr = [];
+            auxArr[0] = data2;
+            
+            console.log(data2);
+            console.log(data2[0]);
+            console.log(auxArr[0]);
+            console.log(data[0]);
+            
+            $scope.selectedItem = data2;
+            //$scope.element = data2[0];
+            //$scope.element = auxArr[0];
+            //$scope.element = data[0];
+
+            $scope.element = _.find($scope.items, function (item) {
+                console.log('************** '+data2.parent+' '+JSON.stringify(item));
+                return item.name === data2.parent;
+            });
+
+            //$scope.item = data2;
+            console.log($scope.element);
+
+        }).error(function (data) {
+            alert('Houston, we got a problem!');
+        });
 
 	}).error(function (data) {
 		alert('Houston, we got a problem!');
@@ -27,21 +51,31 @@ define(['./module'], function (controllers) {
 
     $scope.assignPagedItems= function(items) {
 
-        for (var i = 0; i < $scope.items.length; i++) {
-            if (i % $scope.itemsPerPage === 0) {
-                $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.items[i] ];
-            } else {
-                $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.items[i]);
+        if (items.length>0) {
+            $scope.pagedItems = []; //Clean this array
+            for (var i = 0; i < $scope.items.length; i++) {
+                console.log($scope.items[i]);
+                if (i % $scope.itemsPerPage === 0) {
+                    $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.items[i] ];
+                } else {
+                    $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.items[i]);
+                }
             }
+
+        } else {
+             $scope.pagedItems=[];
         }
 
     }
 
-    $scope.ok = function(id, name, slug, description) {
+    $scope.ok = function(id, name, slug, parent, description) {
+
+        console.log('EL PARENT: '+parent);
 
         var formData = {
             'name':name,
             'slug':slug,
+            'parent':parent,
             'description':description
         };
         
@@ -175,34 +209,44 @@ define(['./module'], function (controllers) {
         }
     }
 
-    $scope.destroyRow = function(id) { 
-        console.log('ITEM TO PUSH: '+JSON.stringify(id));
+    $scope.destroyRow = function(id) {
+
+        console.log('ITEM TO REMOVE: '+JSON.stringify(id));
         
         for(var aux in $scope.items) {
 
             if ($scope.items[aux].id==id) {
+    
+                console.log('YES FOUND ITEM TO REMOVE: '+JSON.stringify(id));
+    
                 $scope.items.splice(aux,1);
                 $scope.assignPagedItems($scope.items);
                 break;
+
             }       
         
-
         }
     }
 
-    $sails.on("message", function (message) {
-        if (message.verb === "update") {
+    $scope.addRow = function(item) { 
+        console.log('ITEM TO PUSH: '+JSON.stringify(item));
+        $scope.items.push(item); 
+        $scope.assignPagedItems($scope.items);
+    }
+
+   
+    $sails.on("categories", function (message) {
+        
+        if (message.verb === "updated") {
             $scope.updateRow(message.data);
             console.log('CALLED SOCKET TO UPDATE A CATEGORY!!!!: '+JSON.stringify(message));
-            //$scope.bars.push(message.data);
         }
 
-        if (message.verb === "destroy") {
-            //$scope.destroyRow(message.data);
+        if (message.verb === "destroyed") {
+        
             console.log('CALLED SOCKET TO DESTROY A CATEGORY!!!!: '+JSON.stringify(message));
             $scope.destroyRow(message.id);
             
-            //$scope.bars.push(message.data);
         }
 
     });
