@@ -17,6 +17,7 @@
     "angular-sails": "~1.0.4",
     "angular-summernote": "~0.2.2",
     "angular-redactor": "~1.0.0",
-    "angular-sanitize": "~1.2.22"
+    "angular-sanitize": "~1.2.22",
+    "angular-dragon-drop": "~0.3.1"
   }
 }
