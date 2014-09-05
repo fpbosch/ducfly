@@ -1,0 +1,3 @@
+define(['./navigation',
+	'./macareta'
+], function () {});

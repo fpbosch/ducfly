@@ -1,0 +1,25 @@
+{
+  "name": "AngularJS + RequireJS Example",
+  "version": "0.1",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "libs"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "requirejs": "latest",
+    "requirejs-domready": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "fontawesome": "latest",
+    "sails.io.js": "0.10.3",
+    "angular-sails": "*",
+    "angular-summernote": "~0.2.2",
+    "angular-redactor": "~1.0.0",
+    "angular-sanitize": "~1.2.22",
+    "angular-draganddrop": "~0.1.4",
+    "angular-drag-and-drop-lists": "~1.1.0"
+  }
+}

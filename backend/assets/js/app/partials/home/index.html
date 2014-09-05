@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row" ng-repeat="menu in menus">
+		<h1>{{menu.label}}</h1>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row" ng-repeat="item in items">
+		<h1>{{item.title}}</h1>
+		<div>
+			<div ng-bind-html="item.body"></div>	
+		</div>
+	</div>
+</div>

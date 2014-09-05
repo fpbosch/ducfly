@@ -1,0 +1,59 @@
+<div class="btn-group">
+			
+	<div class="btn-group">
+		<div class="dropdown">
+			<button ng-click="cmd_wrap('h1')" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    H1
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li ng-click="cmd_h2()" role="presentation"><a role="menuitem" tabindex="-1">H2</a></li>
+				<li ng-click="cmd_h3()" role="presentation"><a role="menuitem" tabindex="-1">H3</a></li>
+				<li ng-click="cmd_h4()" role="presentation"><a role="menuitem" tabindex="-1">H4</a></li>
+				<li ng-click="cmd_h5()" role="presentation"><a role="menuitem" tabindex="-1">H5</a></li>
+				<li ng-click="cmd_h6()" role="presentation"><a role="menuitem" tabindex="-1">H6</a></li>
+				
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<button ng-click="cmd_wrap('p')" type="button" class="btn btn-default" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+		p
+	</button>
+	
+	<button ng-click="cmd_img()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+		img
+	</button>
+	<button ng-click="cmd_h3()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				h3
+	</button>
+
+	<button ng-click="cmd_h4()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				h4
+			</button>
+			<button ng-click="cmd_h5()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				h5
+			</button>
+			<button ng-clicked="cmd_h6()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				h6
+			</button>
+			<button ng-click="cmd_show_modal()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				show modal
+			</button>
+			<button ng-click="edit_html()" type="button" class="btn btn-default btn-sm btn-small dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Style">
+				Edit html
+			</button>
+		</div>
+	
+	<label ng-show="editorEnabled" class="textarea"> 	
+		<div style="min-height:300px;border:1px solid #CCC;" contenteditable ng-model='myModel' rows='3' class='custom-scroll'></div>
+	</label>
+	<label ng-hide="editorEnabled" class="textarea"> 	
+		<textarea name='body' ng-model='myModel' rows='3' class='custom-scroll'></textarea>
+	</label>
+	<div>
+		<span>
+		</span>
+	</div>
