@@ -8,7 +8,7 @@
 </div>
 <!-- end preloader -->
 
-
+<div class="row" scroll-spy>
 <!-- begin nav -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
@@ -27,14 +27,14 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav pull-right">
 				<!-- begin navigation items -->
-				<li class="current"><a href="#intro">Start</a></li>
-				<li><a href="#features">Features</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#screenshots">Screenshots</a></li>
-				<li><a href="#packages">Packages</a></li>
-				<li><a href="#extra">Extra</a></li>
-				<li><a href="#video">Video</a></li>
-				<li><a href="#download">Download</a></li>
+				<li spy="intro" class="current"><a>Start</a></li>
+				<li spy="features"><a>Features</a></li>
+				<li spy="services"><a>Services</a></li>
+				<li spy="screenshots"><a>Screenshots</a></li>
+				<li spy="packages"><a>Packages</a></li>
+				<li spy="extra"><a>Extra</a></li>
+				<li spy="video"><a>Video</a></li>
+				<li spy="download"><a>Download</a></li>
 				<!-- end navigation items -->
 			</ul>	
 		</div>
@@ -44,7 +44,7 @@
 
 
 
-<div class="container">
+<!--<div class="container">
 	<div class="row" ng-repeat="menu in menus">
 		<h1>{{menu.label}}</h1>
 	</div>
@@ -57,7 +57,7 @@
 			<div ng-bind-html="item.body"></div>	
 		</div>
 	</div>
-</div>
+</div>-->
 
 <!-- begin intro section -->
 <section class="intro" id="intro">
@@ -73,20 +73,14 @@
 					<h1>Show your app the professional way with lamap landing page.</h1>
 					<ul class="list-inline">
 						<li>
-							<a href="#" class="btn btn-custom">
-								<i class="fa fa-cloud-download"></i>
-								Download
-							</a>
-						</li>
-						<li>
-							<a ng-click="discoverClicked()" href="#1" class="btn btn-custom-border">
+							<a spy="features" class="btn btn-custom-border">
 								<i class="fa fa-align-left"></i>
 								Discover
 							</a>
 						</li>
 					</ul>
 
-					<a href="#" class="mouse">
+					<a spy="features" class="mouse">
 						<i class="fa fa-angle-down Drop animated"></i>
 					</a>
 					
@@ -259,41 +253,47 @@
 		<div class="row">
 			<div class="testemonials wow fadeInUp animated" data-wow-offset="10" data-wow-duration="1s">
 				
-				<!-- begin single testomial item -->
-				<div class="testemonial">
-					<div class="col-md-5 client-data">
-						<div class="client-image">
-							<img src="assets/images/person.png" alt="client">
+				<carousel interval="myInterval">
+					<slide>
+						<!-- begin single testomial item -->
+						<div class="testemonial">
+							<div class="col-md-5 client-data">
+								<div class="client-image">
+									<img src="assets/images/person.png" alt="client">
+								</div>
+								<div class="client-name">
+									<h4>Client name</h4>
+									<p>Art Director at Appcreator</p>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12">
+								<div class="client-quote">
+									<p>"Software innovation, like almost every other kind of innovation, requires the ability to collaborate and share ideas with other people, and to sit down and talk with customers and get their feedback and understand their needs."</p>
+								</div>
+							</div>
 						</div>
-						<div class="client-name">
-							<h4>Client name</h4>
-							<p>Art Director at Appcreator</p>
+					</slide>
+					<!-- end single testomial item -->
+					<slide>
+						<!-- begin single testomial item -->
+						<div class="testemonial">
+							<div class="col-md-5 client-data">
+								<div class="client-image">
+									<img src="assets/images/person.png" alt="client">
+								</div>
+								<div class="client-name">
+									<h4>Client name</h4>
+									<p>Art Director at Appcreator</p>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="client-quote">
+									<p>"Software innovation, like almost every other kind of innovation, requires the ability to collaborate and share ideas with other people, and to sit down and talk with customers and get their feedback and understand their needs."</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-7 col-sm-12">
-						<div class="client-quote">
-							<p>"Software innovation, like almost every other kind of innovation, requires the ability to collaborate and share ideas with other people, and to sit down and talk with customers and get their feedback and understand their needs."</p>
-						</div>
-					</div>
-				</div>
-				<!-- end single testomial item -->
-				<!-- begin single testomial item -->
-				<div class="testemonial">
-					<div class="col-md-5 client-data">
-						<div class="client-image">
-							<img src="assets/images/person.png" alt="client">
-						</div>
-						<div class="client-name">
-							<h4>Client name</h4>
-							<p>Art Director at Appcreator</p>
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="client-quote">
-							<p>"Software innovation, like almost every other kind of innovation, requires the ability to collaborate and share ideas with other people, and to sit down and talk with customers and get their feedback and understand their needs."</p>
-						</div>
-					</div>
-				</div>
+					</slide>
+				</carousel>
 				<!-- end single testomial item -->
 			</div>
 		</div>
@@ -407,91 +407,64 @@
 
 		<div class="row">
 			
-			<div class="col-md-12">
+			<!-- begin single screenshot -->	
+			<div class="col-xs-6 col-md-3">
 				
-				<div class="screens wow bounceIn animated" data-wow-offset="10" data-wow-duration="1.5s">
 					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen1.png" data-lightbox-gallery="screens">
+					<div class="screen thumbnail" >
+						<a href="assets/images/screen1.png"  data-lightbox-gallery="screens">
 							<img src="assets/images/screen1.png" alt="screenshot">
 							<span class="hover-screen">
 								<i class="fa fa-search"></i>
 							</span>
 						</a>
 					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
+
+			</div>
+			<!-- end single screenshot -->
+			
+			<!-- begin single screenshot -->
+			<div class="col-xs-6 col-md-3">
+			
+				<div class="screen thumbnail">
 						<a href="assets/images/screen2.png" data-lightbox-gallery="screens">
 							<img src="assets/images/screen2.png" alt="screenshot">
 							<span class="hover-screen">
 								<i class="fa fa-search"></i>
 							</span>
 						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen3.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen3.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen4.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen4.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen1.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen1.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen2.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen2.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen3.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen3.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
-					<!-- begin single screenshot -->
-					<div class="screen">
-						<a href="assets/images/screen4.png" data-lightbox-gallery="screens">
-							<img src="assets/images/screen4.png" alt="screenshot">
-							<span class="hover-screen">
-								<i class="fa fa-search"></i>
-							</span>
-						</a>
-					</div>
-					<!-- end single screenshot -->
 				</div>
 			</div>
+			<!-- end single screenshot -->
+			
+					<!-- begin single screenshot -->
+			<div class="col-xs-6 col-md-3">
+			
+				<div class="screen thumbnail">
+						<a href="assets/images/screen3.png" data-lightbox-gallery="screens">
+							<img src="assets/images/screen3.png" alt="screenshot">
+							<span class="hover-screen">
+								<i class="fa fa-search"></i>
+							</span>
+						</a>
+				</div>
+					<!-- end single screenshot -->
+			</div>
+
+					<!-- begin single screenshot -->
+			<div class="col-xs-6 col-md-3">
+			
+				<div class="screen thumbnail">
+						<a href="assets/images/screen4.png" data-lightbox-gallery="screens">
+							<img src="assets/images/screen4.png" alt="screenshot">
+							<span class="hover-screen">
+								<i class="fa fa-search"></i>
+							</span>
+						</a>
+				</div>
+					<!-- end single screenshot -->
+			</div>
+				
 		</div>
 	</div>
 </section>
@@ -521,16 +494,22 @@
 			</div>
 			<div class="col-md-6 col-sm-12">
 				<figure class="small-slider wow fadeInRight animated" data-wow-offset="10">
-					<!-- begin single slider item -->
-					<div class="item">
-						<img src="assets/images/iphone5_two.png" alt="iphone5">
-					</div>
-					<!-- end single slider item -->
-					<!-- begin single slider item -->
-					<div class="item">
-						<img src="assets/images/iphone5_white.png" alt="iphone5">
-					</div>
-					<!-- end single slider item -->
+					<carousel interval="myInterval">
+						<slide>
+							<!-- begin single slider item -->
+							<div class="item">
+								<img src="assets/images/iphone5_two.png" alt="iphone5">
+							</div>
+						</slide>
+						<!-- end single slider item -->
+						<!-- begin single slider item -->
+						<slide>
+							<div class="item">
+								<img src="assets/images/iphone5_white.png" alt="iphone5">
+							</div>
+						</slide>
+						<!-- end single slider item -->
+					</carousel>
 				</figure>
 			</div>
 		</div>
@@ -813,7 +792,7 @@
 			<div class="col-md-8 video-item wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
 				
 				<!-- Replace your embed iframe src with below iframe -->
-				<iframe src="http://player.vimeo.com/video/102787065?color=63b5d6" width="750" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<!--<iframe src="http://player.vimeo.com/video/102787065?color=63b5d6" width="750" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
 
 			</div>
 
@@ -877,7 +856,7 @@
 	</div>
 </section>
 <!-- end download section -->
-
+</div>
 <!-- begin footer section -->
 <footer class="footer" id="footer">
 	<div class="container">

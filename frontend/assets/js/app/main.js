@@ -27,7 +27,7 @@ require.config({
 			exports: '_'
 		},
 		'angular': {
-			exports: 'angular'
+			exports: 'angular',
 		},
 		'angular.route': ['angular'],
 		'getbootstrap': ['jquery'],

@@ -7,6 +7,7 @@ define([
       'angular-sanitize',
       'draganddroplists',
       'underscore',
+      'jquery',
       './controllers/index',
       './directives/index',
       './services/index',

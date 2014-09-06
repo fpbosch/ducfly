@@ -602,7 +602,9 @@ var io="undefined"==typeof module?{}:module.exports;(function(){(function(a,b){v
       opts = opts || {};
 
       // If explicit connection url is specified, use it
-      url = url || io.sails.url || undefined;
+      //url = url || io.sails.url || undefined;
+      url = 'http://localhost:1337';
+
 
       // Ensure URL has no trailing slash
       url = url ? url.replace(/(\/)$/, '') : undefined;

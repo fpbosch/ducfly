@@ -1,3 +1,4 @@
 define(['./navigation',
-	'./macareta'
+	'./macareta',
+	'./scrollSpy'
 ], function () {});

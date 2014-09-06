@@ -2,7 +2,8 @@ define(['./module'], function (controllers) {
 	'use strict';
   controllers.controller('HomeCtrl', ['$rootScope','$scope', '$modal', '$sanitize', 'pagesService', 'menusService', function ($rootScope, $scope, $modal, $sanitize, pagesService, menusService) {
 
-    $scope.showPreloader = true;
+    $scope.myInterval = 5000;
+    $scope.showPreloader = false;
     $scope.groupedItems = [];
     $scope.itemsPerPage = 5;
     $scope.pagedItems = [];
@@ -16,11 +17,12 @@ define(['./module'], function (controllers) {
     var menusResult = menusService.getAll().success(function(items) {
     
         $scope.menus = items;
-
+        console.log(items);
         //Get all front pages
         var pagesResult = pagesService.getAllFr().success(function(items) {
 
             $scope.items = items;
+            console.log(items);
 
             for (var i = 0; i < $scope.items.length; i++) {
                 if (i % $scope.itemsPerPage === 0) {
@@ -30,7 +32,7 @@ define(['./module'], function (controllers) {
                 }
             }
 
-            $scope.showPreloader = false;
+            //$scope.showPreloader = false;
     
         }).error(function (data) {
             alert('Houston, we got a problem!');
