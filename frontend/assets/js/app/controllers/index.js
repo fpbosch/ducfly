@@ -20,5 +20,5 @@ define([
 	'./menus-list-ctrl',
 	'./menus-new-ctrl',
 	'./home-ctrl',
-
+	'./terms-ctrl',
 ], function () {});

@@ -28,7 +28,10 @@
     "bcrypt": "^0.8.0",
     "passport-http-bearer": "^1.0.1",
     "node-uuid": "^1.4.1",
-    "sails-mongo": "^0.10.4"
+    "sails-mongo": "^0.10.4",
+    "npm": "^1.4.26",
+    "install": "^0.1.7",
+    "mailchimp": "^1.1.0"
   },
   "scripts": {
     "start": "node app.js",

@@ -7,6 +7,11 @@ define(['./app'], function (app) {
             controller: 'HomeCtrl'
           });
   
+          $routeProvider.when('/terms', {
+            templateUrl: 'assets/js/app/partials/terms/index.html',
+            controller: 'TermsCtrl'
+          });
+  
           $routeProvider.when('/signup', {
             templateUrl: 'assets/js/app/partials/signup/new.html',
             controller: 'SignupNewCtrl'

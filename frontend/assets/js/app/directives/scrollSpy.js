@@ -39,8 +39,7 @@ define(['./module'], function (directives) {
 
 
 		      $($window).scroll(function () {
-		      	console.log('YES SCROLL');
-		        var highlightSpy, pos, spy, _i, _len, _ref;
+		      	var highlightSpy, pos, spy, _i, _len, _ref;
 		        highlightSpy = null;
 		        _ref = scope.spies;
 
@@ -56,7 +55,6 @@ define(['./module'], function (directives) {
 
 		          if ((pos = spyElems[spy.id].offset().top) - $window.scrollY <= 0) {
 		            // the window has been scrolled past the top of a spy element
-		            console.log('ENTREM AQUÍ');
 		            spy.pos = pos;
 
 		            if (highlightSpy == null) {
@@ -94,11 +92,9 @@ define(['./module'], function (directives) {
 		      affix.addSpy({
 		        id: attrs.spy,
 		        in: function() {
-		        	console.log('A DINS');
 		          	elem.addClass('current');
 		        },
 		        out: function() {
-		        	console.log('A FORA');
 		        	elem.removeClass('current');
 		        }
 		      });

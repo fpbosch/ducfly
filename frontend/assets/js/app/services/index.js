@@ -3,4 +3,6 @@ define([
 	'./categoriesService',
 	'./usersService',
 	'./menusService',
+	'./newsLetterService',
+	'./contactService',
 ], function () {});

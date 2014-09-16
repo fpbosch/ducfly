@@ -534,9 +534,7 @@ section {
     margin-bottom: 30px;
 }
 
-
 /* Newsletter Section */
-
 .newsletter {
     background-image: url(../images/newsletter_bg.jpg);
     -webkit-background-size: cover;
@@ -562,6 +560,57 @@ section {
     border: 1px solid #01e188;
     border-radius: 3px;
 }
+
+/* Contact Section */
+
+.contact .brief-content {
+    color: #fff;
+    text-align: right;
+}
+
+.contact .give-thanks {
+    color: #fff;
+    text-align: center;
+}
+
+.contact {
+    background-image: url(../images/newsletter_bg.jpg);
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+
+.contact .section-head {
+    color: #fff;
+}
+
+.contact .form {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact input {
+    height: 62px;
+    width: 500px;
+    padding: 20px;
+    background: none;
+    color: #fff;
+    border: 1px solid #01e188;
+    border-radius: 3px;
+    margin-bottom:10px;
+}
+
+.contact textarea {
+    height: 62px;
+    width: 500px;
+    padding: 20px;
+    background: none;
+    color: #fff;
+    border: 1px solid #01e188;
+    border-radius: 3px;
+    margin-bottom:10px;
+}
+/* End of contact section */
 
 .screens .owl-prev {
     position: absolute;
@@ -655,42 +704,46 @@ section {
 }
 
 
-/* Packages Section */
+/* Customers Section */
 
-.packages {
+.custoemrs .screen {
+    margin-bottom: 20px;
+}
+
+.customers {
     background-image: url(../images/icon_bg.png);
     background-attachment: fixed;
     background-repeat: repeat;
     text-align: center;
 }
 
-.packages .package {
+.customers .package {
     border: 1px solid #e1e1e1;
     border-radius: 4px;
     background-color: #fff;
     padding: 30px 0;
 }
 
-.packages .package.featured {
+.customers .package.featured {
     padding: 45px 0;
     margin-top: -15px;
 }
 
-.packages .package.featured .package-name {
+.customers .package.featured .package-name {
     color: #01e188;
 }
 
-.packages .package .package-price {
+.customers .package .package-price {
     font-size: 30px;
     font-weight: 300;
     display: block;
 }
 
-.packages .package .package-features ul li {
+.customers .package .package-features ul li {
     margin: 15px 0;
 }
 
-.packages .package .btn {
+.customers .package .btn {
     margin-top: 10px;
     width: 208px;
 }
@@ -823,3 +876,23 @@ ul.extra-features i{
 .footer h4 {
     margin-bottom: 5px;
 }
+
+/*Form validations and errors*/
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #01E188;
+}
+
+.css-form textarea.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form textarea.ng-valid.ng-dirty {
+    background-color: #01E188;
+}
+
+
+/*End of Form validations and errors*/

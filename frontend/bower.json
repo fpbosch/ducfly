@@ -20,6 +20,7 @@
     "angular-redactor": "~1.0.0",
     "angular-sanitize": "~1.2.22",
     "angular-draganddrop": "~0.1.4",
-    "angular-drag-and-drop-lists": "~1.1.0"
+    "angular-drag-and-drop-lists": "~1.1.0",
+    "angulartics": "~0.16.5"
   }
 }

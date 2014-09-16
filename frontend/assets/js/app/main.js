@@ -10,6 +10,8 @@ require.config({
 		'angular-sails': '/assets/js/app/lib/angular-sails/dist/angular-sails',
 		'angular.ui.bootstrap': '/assets/js/app/lib/angular-bootstrap/ui-bootstrap-tpls.min',
 		'angular-sanitize': '/assets/js/app/lib/angular-sanitize/angular-sanitize.min',
+		'angulartics': '/assets/js/app/lib/angulartics/dist/angulartics.min',
+
 		/*'sails-socket': '/assets/js/app/lib/sails/socket-io',*/
 		/*'sails-io': '/assets/js/app/lib/sails/sails-io',*/
 		'sails-io': '/assets/js/app/lib/sails.io.js/dist/sails.io',
@@ -29,6 +31,7 @@ require.config({
 		'angular': {
 			exports: 'angular',
 		},
+		'angulartics': ['angular'],
 		'angular.route': ['angular'],
 		'getbootstrap': ['jquery'],
 		'angular-sanitize': ['angular'],
